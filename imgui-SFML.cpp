@@ -22,6 +22,12 @@
 
 #include <vector>
 
+// Disable the GCC conversion warning
+#if defined(__GNUG__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+
 #ifdef ANDROID
 #ifdef USE_JNI
 
