@@ -38,14 +38,14 @@ set(IMGUI_SFML_CONFIG_INSTALL_DIR "" CACHE PATH "Path where user's config header
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 if (IMGUI_SFML_FIND_SFML)
-	if (NOT BUILD_SHARED_LIBS)
-		set(SFML_STATIC_LIBRARIES ON)
-	endif()
-	find_package(SFML 2.5 COMPONENTS graphics system window)
+  if (NOT BUILD_SHARED_LIBS)
+    set(SFML_STATIC_LIBRARIES ON)
+  endif()
+  find_package(SFML 2.5 COMPONENTS graphics system window)
 
-	if(NOT SFML_FOUND)
+  if(NOT SFML_FOUND)
     message(FATAL_ERROR "SFML 2 directory not found. Set SFML_DIR to directory where SFML was built (or one which ccontains SFMLConfig.cmake)")
-	endif()
+  endif()
 endif()
 
 # ImGui does not provide native support for CMakeLists, workaround for now to have
@@ -71,14 +71,14 @@ set(IMGUI_PUBLIC_HEADERS
 )
 
 if (IMGUI_SFML_IMGUI_DEMO)
-    list(APPEND IMGUI_SOURCES ${IMGUI_DEMO_SOURCES})
+  list(APPEND IMGUI_SOURCES ${IMGUI_DEMO_SOURCES})
 endif()
 
 # CMake 3.11 and later prefer to choose GLVND, but we choose legacy OpenGL just because it's safer
 # (unless the OpenGL_GL_PREFERENCE was explicitly set)
 # See CMP0072 for more details (cmake --help-policy CMP0072)
 if ((NOT ${CMAKE_VERSION} VERSION_LESS 3.11) AND (NOT OpenGL_GL_PREFERENCE))
-    set(OpenGL_GL_PREFERENCE "LEGACY")
+  set(OpenGL_GL_PREFERENCE "LEGACY")
 endif()
 
 find_package(OpenGL REQUIRED)
@@ -163,6 +163,9 @@ list(APPEND IMGUI_SFML_PUBLIC_HEADERS "${IMGUI_PUBLIC_HEADERS}")
 set_target_properties(ImGui-SFML PROPERTIES
   PUBLIC_HEADER "${IMGUI_SFML_PUBLIC_HEADERS}"
 )
+
+# Set minimum required standard
+target_compile_features(ImGui-SFML PUBLIC cxx_std_11)
 
 if(IMGUI_SFML_BUILD_EXAMPLES)
   add_subdirectory(examples)

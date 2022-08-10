@@ -1,6 +1,11 @@
 ImGui-SFML v2.5
 =======
-[![build Actions Status](https://github.com/eliasdaler/imgui-sfml/workflows/build/badge.svg)](https://github.com/eliasdaler/imgui-sfml/actions)
+
+[![Ubuntu](https://github.com/eliasdaler/imgui-sfml/actions/workflows/ubuntu.yml/badge.svg?branch=master)](https://github.com/eliasdaler/imgui-sfml/actions/workflows/ubuntu.yml)
+[![Windows MinGW](https://github.com/eliasdaler/imgui-sfml/actions/workflows/windows-mingw.yml/badge.svg?branch=master)](https://github.com/eliasdaler/imgui-sfml/actions/workflows/windows-mingw.yml)
+[![Windows Visual Studio](https://github.com/eliasdaler/imgui-sfml/actions/workflows/windows-msvc.yml/badge.svg?branch=master)](https://github.com/eliasdaler/imgui-sfml/actions/workflows/windows-msvc.yml)
+[![macOS](https://github.com/eliasdaler/imgui-sfml/actions/workflows/macos.yml/badge.svg?branch=master)](https://github.com/eliasdaler/imgui-sfml/actions/workflows/macos.yml)
+[![clang-format](https://github.com/eliasdaler/imgui-sfml/actions/workflows/clang-format.yml/badge.svg?branch=master)](https://github.com/eliasdaler/imgui-sfml/actions/workflows/clang-format.yml)
 
 Library which allows you to use [Dear ImGui](https://github.com/ocornut/imgui) with [SFML](https://github.com/SFML/SFML)
 
@@ -17,7 +22,7 @@ Dependencies
 Contributing
 -----
 
-* The code is written in C++03. See [#7](https://github.com/eliasdaler/imgui-sfml/issues/7)
+* The code is written in C++11 (stable SFML is still C++03, Dear ImGui has started using C++11 since 2022)
 * The code should be formatted via [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html) using `.clang-format` provided in the root of this repository
 
 How-to
@@ -102,7 +107,7 @@ Using ImGui-SFML in your code
 Example code
 ----
 
-See example file [here](examples/main.cpp)
+See example file [here](https://github.com/eliasdaler/imgui-sfml/blob/master/examples/minimal/main.cpp)
 
 ```cpp
 #include "imgui.h"
@@ -134,6 +139,8 @@ int main() {
 
         ImGui::SFML::Update(window, deltaClock.restart());
 
+        ImGui::ShowDemoWindow();
+
         ImGui::Begin("Hello, world!");
         ImGui::Button("Look at this pretty button");
         ImGui::End();
@@ -145,6 +152,8 @@ int main() {
     }
 
     ImGui::SFML::Shutdown();
+
+    return 0;
 }
 ```
 
