@@ -28,6 +28,7 @@
 #if defined(__GNUG__)
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wconversion"
+#pragma GCC diagnostic ignored "-Wswitch"
 #endif
 
 #ifdef ANDROID
