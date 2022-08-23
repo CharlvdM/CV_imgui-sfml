@@ -29,6 +29,7 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wconversion"
 #pragma GCC diagnostic ignored "-Wswitch"
+#pragma GCC diagnostic ignored "-Wmissing-declarations"
 #endif
 
 #ifdef ANDROID
