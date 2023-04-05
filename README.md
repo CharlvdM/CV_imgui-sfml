@@ -1,6 +1,8 @@
 ImGui-SFML v2.5
 =======
 
+Disclaimer: This is my copy of the ImGui-SFML repository found here: https://github.com/SFML/imgui-sfml.git. The copy is needed to enable my own updates without interfering with the actual ImGui-SFML repo. The rest of this README is as it was written by the author.
+
 Library which allows you to use [Dear ImGui](https://github.com/ocornut/imgui) with [SFML](https://github.com/SFML/SFML)
 
 ![screenshot](https://i2.wp.com/i.imgur.com/iQibpSk.gif)
